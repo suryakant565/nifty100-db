@@ -37,7 +37,26 @@ def normalize_year(year):
     except:
         pass
 
+    # Handles: Mar 2014, Dec 2012, Jun 2015
+    try:
+        dt = datetime.strptime(year, "%b %Y")
+        return dt.strftime("%Y-%m")
+    except:
+        pass
+
     if year.isdigit() and len(year) == 4:
         return f"{year}-03"
+    
+    try:
+        value = float(year)
+
+        if value.is_integer():
+            return f"{int(value)}-03"
+
+    except:
+        pass
+
+    if year.upper() == "TTM":
+        return "TTM"
 
     return "PARSE_ERROR"
