@@ -1,10 +1,9 @@
 import sqlite3
-from pathlib import Path
 import pandas as pd
 
 DB_PATH = "data/nifty100.db"
 
-files = {
+raw_files = {
     "companies": "data/raw/companies.xlsx",
     "profitandloss": "data/raw/profitandloss.xlsx",
     "balancesheet": "data/raw/balancesheet.xlsx",
@@ -12,6 +11,9 @@ files = {
     "analysis": "data/raw/analysis.xlsx",
     "documents": "data/raw/documents.xlsx",
     "prosandcons": "data/raw/prosandcons.xlsx",
+}
+
+supporting_files = {
     "sectors": "data/supporting/sectors.xlsx",
     "stock_prices": "data/supporting/stock_prices.xlsx",
     "market_cap": "data/supporting/market_cap.xlsx",
@@ -21,10 +23,16 @@ files = {
 
 conn = sqlite3.connect(DB_PATH)
 
-for table, file in files.items():
+# Core files need header=1
+for table, file in raw_files.items():
+    df = pd.read_excel(file, header=1)
+    df.to_sql(table, conn, if_exists="replace", index=False)
+    print(f"{table}: {len(df)} rows loaded")
+
+# Supporting files use normal header
+for table, file in supporting_files.items():
     df = pd.read_excel(file)
     df.to_sql(table, conn, if_exists="replace", index=False)
-
     print(f"{table}: {len(df)} rows loaded")
 
 conn.close()
