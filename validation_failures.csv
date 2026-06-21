@@ -1,7 +1,4 @@
 file_name,row_number,field,issue,severity
-profitandloss.xlsx,96,year,Invalid year: Mar 2023 15,CRITICAL
-profitandloss.xlsx,485,year,Invalid year: Mar 2016 9m,CRITICAL
-profitandloss.xlsx,986,year,Invalid year: Mar 2016 9m,CRITICAL
 profitandloss.xlsx,47,"(company_id, year)",Duplicate company-year record,WARNING
 profitandloss.xlsx,48,"(company_id, year)",Duplicate company-year record,WARNING
 profitandloss.xlsx,49,"(company_id, year)",Duplicate company-year record,WARNING
@@ -28,11 +25,6 @@ profitandloss.xlsx,69,"(company_id, year)",Duplicate company-year record,WARNING
 profitandloss.xlsx,70,"(company_id, year)",Duplicate company-year record,WARNING
 profitandloss.xlsx,71,"(company_id, year)",Duplicate company-year record,WARNING
 profitandloss.xlsx,72,"(company_id, year)",Duplicate company-year record,WARNING
-balancesheet.xlsx,1045,year,Invalid year: 2024.5,CRITICAL
-balancesheet.xlsx,1066,year,Invalid year: 2024.5,CRITICAL
-balancesheet.xlsx,1079,year,Invalid year: 2024.5,CRITICAL
-balancesheet.xlsx,1092,year,Invalid year: 2024.5,CRITICAL
-balancesheet.xlsx,1130,year,Invalid year: 2024.5,CRITICAL
 balancesheet.xlsx,99,"(company_id, year)",Duplicate company-year record,WARNING
 balancesheet.xlsx,100,"(company_id, year)",Duplicate company-year record,WARNING
 balancesheet.xlsx,101,"(company_id, year)",Duplicate company-year record,WARNING
