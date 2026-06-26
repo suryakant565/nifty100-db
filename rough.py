@@ -1,11 +1,19 @@
 import sqlite3
+import pandas as pd
 
 conn = sqlite3.connect("data/nifty100.db")
 
-tables = conn.execute(
-    "SELECT name FROM sqlite_master WHERE type='table';"
-).fetchall()
+df = pd.read_sql(
+    """
+    SELECT *
+    FROM financial_ratios
+    LIMIT 10
+    """,
+    conn
+)
 
-print(tables)
+print(df)
+print("\nColumns:", len(df.columns))
+print("Rows:", len(pd.read_sql("SELECT * FROM financial_ratios", conn)))
 
 conn.close()
